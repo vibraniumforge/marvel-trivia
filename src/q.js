@@ -10,7 +10,7 @@ class Q extends React.Component {
   }
 
   render() {
-    return <React.Fragment></React.Fragment>;
+    return <React.Fragment />;
   }
 }
 
