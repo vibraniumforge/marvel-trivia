@@ -14,4 +14,4 @@ class Q extends React.Component {
   }
 }
 
-export default Q;
+export default Questions;

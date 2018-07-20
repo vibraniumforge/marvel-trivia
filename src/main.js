@@ -1,5 +1,6 @@
 import React from "react";
-// import q from "./q.js";
+import ReactDom from "react-dom";
+// import Questions from "./questions.js";
 import Timer from "./timer.js";
 
 class Main extends React.Component {
