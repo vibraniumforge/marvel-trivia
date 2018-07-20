@@ -32,6 +32,7 @@ class Main extends React.Component {
     };
 
     this.onChange = this.onChange.bind(this);
+    this.prepare = this.prepare.bind(this);
   }
 
   componentDidMount() {
@@ -49,6 +50,8 @@ class Main extends React.Component {
         1
       )
     });
+    document.querySelector("#correctResponse").classList.add("white");
+    document.querySelector("#correctResponse").classList.remove("green");
     this.parser();
   }
 
@@ -66,12 +69,20 @@ class Main extends React.Component {
 
   compareAnswer() {
     if (
-      this.state.userAnswer.toLocaleLowerCase() ===
-        this.state.theAnswer.toLocaleLowerCase() &&
-      this.state.theAnswer !== ""
+      this.state.userAnswer.toLocaleLowerCase().trim() ===
+        this.state.theChoice[0].answer.toLocaleLowerCase().trim() &&
+      this.state.theChoice[0].answer !== ""
     ) {
       console.log("You are correct!");
-      this.prepare();
+      document.querySelector("#correctResponse").classList.remove("white");
+      document.querySelector("#correctResponse").classList.add("green");
+      setTimeout(
+        function() {
+          this.prepare();
+        }.bind(this),
+        1000
+      );
+      this.setState({ userAnswer: "" });
     } else {
       console.log("no");
     }
@@ -108,7 +119,13 @@ class Main extends React.Component {
               onChange={this.onChange}
               disabled
             /> */}
-            <p>{this.state.theQuestion}</p>
+            <p>{this.state.theChoice[0].question}</p>
+          </div>
+          <div id="correctResponse" className="white">
+            <p>You are correct!</p>
+          </div>
+          <div id="theDomAnswer" className="white">
+            <p> {this.state.theChoice[0].answer}</p>
           </div>
           <br />
           <div className="answer">

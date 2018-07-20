@@ -57,3 +57,16 @@ body {
   transition: all 0.05s;
   transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
 }
+
+.hidden {
+  visibility: hidden;
+}
+
+.white {
+  color: white;
+}
+
+.green {
+  color: green;
+}
+
