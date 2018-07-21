@@ -5,7 +5,7 @@ class Q extends React.Component {
     super(props);
 
     this.state = {
-      quesions: ["Who is Iron Man?", "Tony Stark"]
+      quesions: ''
     };
   }
 
