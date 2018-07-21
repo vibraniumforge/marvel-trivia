@@ -1,4 +1,5 @@
 import React from "react";
+// import Marvel from "marvel.png"
 
 class Timer extends React.Component {
   constructor(props) {
