@@ -7,6 +7,8 @@ class Main extends React.Component {
   constructor(props) {
     super(props);
 
+    const questions = this.props.questions;
+
     this.state = {
       theArray: [
         {
@@ -90,7 +92,6 @@ class Main extends React.Component {
           answer: "Green"
         }
       ],
-      // theArray: [this.props.questions],
       theChoice: "2",
       theQuestion: "",
       theAnswer: "",
@@ -99,9 +100,6 @@ class Main extends React.Component {
     };
 
     this.onChange = this.onChange.bind(this);
-    // this.prepare = this.prepare.bind(this);
-    // this.parser = this.parser.bind(this);
-    // this.compareAnswer = this.compareAnswer.bind(this);
   }
 
   componentDidMount() {
@@ -165,9 +163,9 @@ class Main extends React.Component {
 
   render() {
     console.log("state.theArray=", this.state.theArray);
-    console.log("theArray.length=", this.state.theArray.length);
-    console.log("theChoice=", this.state.theChoice);
-    if (this.state.theChoice[0]) {
+    console.log("state.theArray.length=", this.state.theArray.length);
+    console.log("state.theChoice=", this.state.theChoice);
+    if (this.state.theChoice !== "2" || this.state.theChoice !== []) {
       console.log(
         "this.state.theChoice[0].question=",
         this.state.theChoice[0].question
@@ -177,9 +175,9 @@ class Main extends React.Component {
         this.state.theChoice[0].answer
       );
     }
-    console.log("theQuestion=", this.state.theQuestion);
-    console.log("theAnswer=", this.state.theAnswer);
-    console.log("userAnswer=", this.state.userAnswer);
+    console.log("state.theQuestion=", this.state.theQuestion);
+    console.log("state.theAnswer=", this.state.theAnswer);
+    console.log("state.userAnswer=", this.state.userAnswer);
     console.log("state.showCorrectMessage=", this.state.showCorrectMessage);
     console.log("========");
 
