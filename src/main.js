@@ -1,5 +1,5 @@
 import React from "react";
-// import Questions from "./questions.js";
+import Questions from "./questions.js";
 import Timer from "./timer.js";
 import Marvel from "./marvel.png";
 
@@ -82,7 +82,7 @@ class Main extends React.Component {
           answer: "Arc Reactor"
         },
         {
-          question: "Whai is Thor's hammer called?",
+          question: "What is Thor's hammer called?",
           answer: "Mjolnir"
         },
         {
@@ -111,7 +111,6 @@ class Main extends React.Component {
 
   prepare() {
     this.setState({
-      // location1: Math.floor(Math.random() * this.state.theArray.length),
       theChoice: this.state.theArray.splice(
         Math.floor(Math.random() * this.state.theArray.length),
         1
