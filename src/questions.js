@@ -7,12 +7,12 @@ class Questions extends React.Component {
     this.state = {
       quesions: [
         {
-          question: "What is Iron Man's real name?",
-          answer: "Tony Stark"
-        },
-        {
           question: "What is Captain America's real name?",
           answer: "Steve Rogers"
+        },
+        {
+          question: "What is Iron Man's real name?",
+          answer: "Tony Stark"
         },
         {
           question: "What is The Hulk's real name?",
@@ -91,7 +91,7 @@ class Questions extends React.Component {
   }
 
   render() {
-    return <React.Fragment />;
+    return this.state.quesions;
   }
 }
 

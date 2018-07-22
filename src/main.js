@@ -10,12 +10,12 @@ class Main extends React.Component {
     this.state = {
       theArray: [
         {
-          question: "What is Iron Man's real name?",
-          answer: "Tony Stark"
-        },
-        {
           question: "What is Captain America's real name?",
           answer: "Steve Rogers"
+        },
+        {
+          question: "What is Iron Man's real name?",
+          answer: "Tony Stark"
         },
         {
           question: "What is The Hulk's real name?",
@@ -90,10 +90,12 @@ class Main extends React.Component {
           answer: "Green"
         }
       ],
+      // theArray: [this.props.questions],
       theChoice: "2",
       theQuestion: "",
       theAnswer: "",
-      userAnswer: ""
+      userAnswer: "",
+      showCorrectMessage: false
     };
 
     this.onChange = this.onChange.bind(this);
@@ -103,9 +105,7 @@ class Main extends React.Component {
   }
 
   componentDidMount() {
-    // this.setState({
-    //   theArray: q.array
-    // });
+    // this.setState({ theArray: <Questions /> });
     this.prepare();
   }
 
@@ -114,7 +114,9 @@ class Main extends React.Component {
       theChoice: this.state.theArray.splice(
         Math.floor(Math.random() * this.state.theArray.length),
         1
-      )
+      ),
+      userAnswer: "",
+      showCorrectMessage: false
     });
     document.querySelector("#correctResponse").classList.add("white");
     document.querySelector("#correctResponse").classList.remove("green");
@@ -143,18 +145,22 @@ class Main extends React.Component {
         this.state.theChoice[0].answer.toLowerCase().trim()
     ) {
       console.log("You are correct!");
-      document.querySelector("#correctResponse").classList.remove("white");
-      document.querySelector("#correctResponse").classList.add("green");
-      setTimeout(
-        function() {
-          this.prepare();
-        }.bind(this),
-        1000
-      );
-      this.setState({ userAnswer: "" });
+      this.showCorrectMessage();
     } else {
-      console.log("no");
+      console.log("No");
     }
+  }
+
+  showCorrectMessage() {
+    document.querySelector("#correctResponse").classList.remove("white");
+    document.querySelector("#correctResponse").classList.add("green");
+    this.setState({ showCorrectMessage: true });
+    setTimeout(
+      function() {
+        this.prepare();
+      }.bind(this),
+      1000
+    );
   }
 
   render() {
@@ -174,19 +180,21 @@ class Main extends React.Component {
     console.log("theQuestion=", this.state.theQuestion);
     console.log("theAnswer=", this.state.theAnswer);
     console.log("userAnswer=", this.state.userAnswer);
+    console.log("state.showCorrectMessage=", this.state.showCorrectMessage);
     console.log("========");
 
     return (
       <React.Fragment>
-        <h1>Welcome to my Marvel Trivia App!</h1>
-        <img src={Marvel} alt={"Marvel Logo"} />
+        <h1>
+          Welcome to my <img src={Marvel} alt={"Marvel Logo"} /> Trivia App!
+        </h1>
         <h3>Answer quickly to win points!</h3>
         <div>
           <div className="question">
             <label htmlFor="question">Question:</label>
             <p>{this.state.theChoice[0].question}</p>
           </div>
-          <div id="correctResponse" className="white">
+          <div id="correctResponse" className="green">
             <h1>You are correct!</h1>
           </div>
           <div id="theDomAnswer" className="white">
