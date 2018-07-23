@@ -116,8 +116,8 @@ class Main extends React.Component {
       userAnswer: "",
       showCorrectMessage: false
     });
-    document.querySelector("#correctResponse").classList.add("white");
-    document.querySelector("#correctResponse").classList.remove("green");
+    // document.querySelector("#correctResponse").classList.add("white");
+    // document.querySelector("#correctResponse").classList.remove("green");
     this.parser();
   }
 
@@ -150,8 +150,8 @@ class Main extends React.Component {
   }
 
   showCorrectMessage() {
-    document.querySelector("#correctResponse").classList.remove("white");
-    document.querySelector("#correctResponse").classList.add("green");
+    // document.querySelector("#correctResponse").classList.remove("white");
+    // document.querySelector("#correctResponse").classList.add("green");
     this.setState({ showCorrectMessage: true });
     setTimeout(
       function() {
@@ -192,7 +192,10 @@ class Main extends React.Component {
             <label htmlFor="question">Question:</label>
             <p>{this.state.theChoice[0].question}</p>
           </div>
-          <div id="correctResponse" className="green">
+          <div
+            id="correctResponse"
+            className={this.state.showCorrectMessage ? "green" : "white"}
+          >
             <h1>You are correct!</h1>
           </div>
           <div id="theDomAnswer" className="white">
