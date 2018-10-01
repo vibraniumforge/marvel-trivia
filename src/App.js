@@ -1,13 +1,11 @@
 import React from "react";
-import Questions from "./questions.js";
+// import Questions from "./questions.js";
 import Timer from "./timer.js";
-import Marvel from "./marvel.png";
+import Marvel from "./images/marvel.png";
 
 class Main extends React.Component {
   constructor(props) {
     super(props);
-
-    const questions = this.props.questions;
 
     this.state = {
       theArray: [
@@ -88,98 +86,119 @@ class Main extends React.Component {
           answer: "Mjolnir"
         },
         {
-          question: "What color does The Hulk turn?",
+          question: "What color does The Hulk turn when angry?",
           answer: "Green"
         }
       ],
-      theChoice: "2",
+      theChoice: "",
       theQuestion: "",
       theAnswer: "",
       userAnswer: "",
-      showCorrectMessage: false
+      showCorrectMessage: false,
+      userPoints: 0,
+      secondsRemaining: 15,
+      gameOver: false,
+      gameLength: 10,
+      startTime: ""
     };
 
     this.onChange = this.onChange.bind(this);
+    this.prepare = this.prepare.bind(this);
+    this.parser = this.parser.bind(this);
+    this.compareAnswer = this.compareAnswer.bind(this);
+    this.showCorrectMessage = this.showCorrectMessage.bind(this);
+    this.startTimer = this.startTimer.bind(this);
+    this.stopTimer = this.stopTimer.bind(this);
   }
 
-  componentDidMount() {
-    // this.setState({ theArray: <Questions /> });
+  componentWillMount() {
     this.prepare();
   }
 
   prepare() {
-    this.setState({
-      theChoice: this.state.theArray.splice(
-        Math.floor(Math.random() * this.state.theArray.length),
-        1
-      ),
-      userAnswer: "",
-      showCorrectMessage: false
-    });
-    // document.querySelector("#correctResponse").classList.add("white");
-    // document.querySelector("#correctResponse").classList.remove("green");
-    this.parser();
+    if (this.state.theArray.length && this.state.gameLength) {
+      this.setState(
+        {
+          theChoice: this.state.theArray.splice(
+            Math.floor(Math.random() * this.state.theArray.length),
+            1
+          ),
+          userAnswer: "",
+          showCorrectMessage: false,
+          gameLength: this.state.gameLength - 1
+        },
+        this.parser
+      );
+    } else {
+      this.setState({ gameOver: true });
+    }
   }
 
   parser() {
-    this.setState({
-      theQuestion: this.state.theChoice[0].question,
-      theAnswer: this.state.theChoice[0].answer
-    });
+    this.setState(
+      {
+        theQuestion: this.state.theChoice[0].question,
+        theAnswer: this.state.theChoice[0].answer
+      },
+      this.startTimer
+    );
   }
 
   onChange(e) {
-    this.setState({ userAnswer: e.target.value });
-    if (this.state.userAnswer !== "") {
-      this.compareAnswer();
-    }
+    this.setState({ userAnswer: e.target.value }, this.compareAnswer);
   }
 
   compareAnswer() {
     if (
-      this.state.theChoice !== "2" &&
-      // this.state.theQuestion &&
+      this.state.userAnswer !== "" &&
       this.state.userAnswer.toLowerCase().trim() ===
         this.state.theChoice[0].answer.toLowerCase().trim()
     ) {
-      console.log("You are correct!");
       this.showCorrectMessage();
-    } else {
-      console.log("No");
     }
   }
 
-  showCorrectMessage() {
-    // document.querySelector("#correctResponse").classList.remove("white");
-    // document.querySelector("#correctResponse").classList.add("green");
-    this.setState({ showCorrectMessage: true });
+  showCorrectMessage = () => {
+    this.setState({
+      showCorrectMessage: true,
+      userPoints: this.state.userPoints + this.state.secondsRemaining
+    });
     setTimeout(
       function() {
         this.prepare();
       }.bind(this),
       1000
     );
+    this.stopTimer();
+    clearInterval(this.timer);
+    this.setState({ secondsRemaining: 15 });
+    // this.startTimer();
+  };
+
+  startTimer() {
+    console.log("startTimer fires");
+    // this.setState({
+    //   time: this.state.time,
+    //   startTime: Date.now()
+    // });
+    this.timer = setInterval(
+      () =>
+        this.setState({ secondsRemaining: this.state.secondsRemaining - 1 }),
+      1000
+    );
+    if (this.state.secondsRemaining < 0) {
+      this.prepare();
+    }
+  }
+
+  stopTimer() {
+    clearInterval(this.timer);
+    console.log("stopTimer fires");
   }
 
   render() {
-    console.log("state.theArray=", this.state.theArray);
-    console.log("state.theArray.length=", this.state.theArray.length);
-    console.log("state.theChoice=", this.state.theChoice);
-    if (this.state.theChoice !== "2" || this.state.theChoice !== []) {
-      console.log(
-        "this.state.theChoice[0].question=",
-        this.state.theChoice[0].question
-      );
-      console.log(
-        "this.state.theChoice[0].answer=",
-        this.state.theChoice[0].answer
-      );
-    }
-    console.log("state.theQuestion=", this.state.theQuestion);
-    console.log("state.theAnswer=", this.state.theAnswer);
-    console.log("state.userAnswer=", this.state.userAnswer);
-    console.log("state.showCorrectMessage=", this.state.showCorrectMessage);
-    console.log("========");
+    console.log("this.state.userPoints=", this.state.userPoints);
+    console.log("this.state.secondsRemaining=", this.state.secondsRemaining);
 
     return (
       <React.Fragment>
@@ -187,33 +206,43 @@ class Main extends React.Component {
           Welcome to my <img src={Marvel} alt={"Marvel Logo"} /> Trivia App!
         </h1>
         <h3>Answer quickly to win points!</h3>
+        <hr />
         <div>
           <div className="question">
-            <label htmlFor="question">Question:</label>
-            <p>{this.state.theChoice[0].question}</p>
+            <label htmlFor="question">
+              Question: {this.state.theChoice[0].question}
+            </label>
           </div>
           <div
             id="correctResponse"
-            className={this.state.showCorrectMessage ? "green" : "white"}
+            className={this.state.showCorrectMessage ? "green" : "hidden"}
           >
             <h1>You are correct!</h1>
           </div>
-          <div id="theDomAnswer" className="white">
-            <p> {this.state.theChoice[0].answer}</p>
-          </div>
+          {/* <div id="theDomAnswer" className="white">
+            {this.state.theChoice[0].answer}
+          </div> */}
           <br />
           <div className="answer">
             <label htmlFor="question">Answer: </label>
             <input
+              id="answerBox"
               className="answer"
               type="text"
               value={this.state.userAnswer}
               onChange={this.onChange}
               placeholder="Your answer"
             />
+            <div
+              id="gameOver"
+              className={this.state.gameOver ? "red" : "hidden"}
+            >
+              <h1>Game over.</h1>
+              <h1>You won {this.state.userPoints} points!</h1>
+            </div>
           </div>
         </div>
-        <Timer />
+        <Timer secondsRemaining={this.state.secondsRemaining} />
       </React.Fragment>
     );
   }

@@ -5,7 +5,7 @@ class Questions extends React.Component {
     super(props);
 
     this.state = {
-      quesions: [
+      questions: [
         {
           question: "What is Captain America's real name?",
           answer: "Steve Rogers"
@@ -86,12 +86,55 @@ class Questions extends React.Component {
           question: "What color does The Hulk turn?",
           answer: "Green"
         }
-      ]
+      ],
+      theChoice: "",
+      theQuestion: "",
+      theAnswer: ""
     };
+    this.prepare = this.prepare.bind(this);
+    this.parser = this.parser.bind(this);
+  }
+
+  componentDidMount() {
+    this.prepare();
+  }
+
+  prepare() {
+    this.setState({
+      theChoice: this.state.questions.splice(
+        Math.floor(Math.random() * this.state.questions.length),
+        1
+      )
+    });
+    this.bs();
+  }
+
+  bs() {
+    console.log("hi:");
+    this.bs2();
+  }
+
+  bs2() {
+    console.log("hi2:");
+    this.bs3();
+  }
+  bs3() {
+    console.log("hi3:");
+    this.parser();
+  }
+
+  parser() {
+    this.setState({
+      theQuestion: this.state.theChoice[0].question,
+      theAnswer: this.state.theChoice[0].answer
+    });
   }
 
   render() {
-    return this.state.quesions;
+    console.log("q.js this.state.theChoice=", this.state.theChoice);
+    console.log("q.js this.state.theQuestion=", this.state.theQuestion);
+    console.log("q.js this.state.theAnswer=", this.state.theAnswer);
+    return this.state.theChoice;
   }
 }
 
