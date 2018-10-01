@@ -219,9 +219,9 @@ class Main extends React.Component {
           >
             <h1>You are correct!</h1>
           </div>
-          {/* <div id="theDomAnswer" className="white">
+          <div id="theDomAnswer" className="white">
             {this.state.theChoice[0].answer}
-          </div> */}
+          </div>
           <br />
           <div className="answer">
             <label htmlFor="question">Answer: </label>

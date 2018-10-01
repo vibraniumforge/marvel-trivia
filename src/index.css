@@ -30,9 +30,10 @@ body {
   background-image: url(./images/capsshield.png);
   background-repeat: no-repeat;
   background-position: center;
+  background-size: 300px 300px;
   position: relative;
-  width: 30rem;
-  height: 30rem;
+  width: 25rem;
+  height: 25rem;
   border: 20px solid white;
   border-radius: 50%;
   margin: 50px auto;
@@ -77,5 +78,5 @@ body {
 }
 
 #answerBox {
-font-size:30px;
+  font-size: 30px;
 }
