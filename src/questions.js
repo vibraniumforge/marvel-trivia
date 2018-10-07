@@ -99,37 +99,6 @@ class Questions extends React.Component {
     this.prepare();
   }
 
-  prepare() {
-    this.setState({
-      theChoice: this.state.questions.splice(
-        Math.floor(Math.random() * this.state.questions.length),
-        1
-      )
-    });
-    this.bs();
-  }
-
-  bs() {
-    console.log("hi:");
-    this.bs2();
-  }
-
-  bs2() {
-    console.log("hi2:");
-    this.bs3();
-  }
-  bs3() {
-    console.log("hi3:");
-    this.parser();
-  }
-
-  parser() {
-    this.setState({
-      theQuestion: this.state.theChoice[0].question,
-      theAnswer: this.state.theChoice[0].answer
-    });
-  }
-
   render() {
     console.log("q.js this.state.theChoice=", this.state.theChoice);
     console.log("q.js this.state.theQuestion=", this.state.theQuestion);
