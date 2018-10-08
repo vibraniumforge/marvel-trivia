@@ -5,10 +5,9 @@ const header = () => {
   return (
     <React.Fragment>
       <h1>
-        Welcome to my <img src={Marvel} alt={"Marvel Logo"} /> Trivia App!
+        Welcome to the <img src={Marvel} alt={"Marvel Logo"} /> Trivia App!
       </h1>
-      <h3>Answer quickly to win points!</h3>
-      <hr />
+      <h3>Answer quickly to win more points!</h3>
     </React.Fragment>
   );
 };

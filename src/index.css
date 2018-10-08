@@ -8,9 +8,9 @@ html {
 body {
   margin: 0;
   font-size: 2rem;
-  display: flex;
+  /* display: flex; */
   flex: 1;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   align-items: center;
 }
 
@@ -39,7 +39,7 @@ body {
 
 .secondhand {
   width: 50%;
-  height: 1%;
+  height: 2%;
   background: red;
   position: absolute;
   top: 50%;
@@ -67,4 +67,14 @@ body {
 
 #answerBox {
   font-size: 30px;
+}
+
+.left {
+  float: left;
+  width: 50%;
+}
+
+.right {
+  float: right;
+  width: 50%;
 }
