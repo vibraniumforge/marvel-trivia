@@ -84,20 +84,100 @@ const questions = [
     answer: "Malibu"
   },
   {
-    question: "What country did Bruce Banner live in?",
+    question: "What country did Bruce Banner hide out in?",
     answer: "Brazil"
   },
   {
-    question: "What country was the Grand Prix that Tony raced in?",
+    question: "What country was the Grand Prix that Tony Stark raced in?",
     answer: "Monaco"
+  },
+  {
+    question: "What planet is Thor's dad's name?",
+    answer: "Odin"
+  },
+  {
+    question: "What is Thor's brother's name?",
+    answer: "Loki"
+  },
+  {
+    question: "What planet is Thor's sister's name?",
+    answer: "Hela"
   },
   {
     question: "What planet is Thor from?",
     answer: "Asgard"
   },
   {
-    question: "What is the nickname of Captain America's best friend?",
-    answer: "Bucky"
+    question: "What planet is Iron Man's first AI's name?",
+    answer: "Jarvis"
+  },
+  {
+    question: "What is Iron Man's current AI's name?",
+    answer: "Friday"
+  },
+  {
+    question: "What state was Thor banished to?",
+    answer: "New Mexico"
+  },
+  {
+    question: "Who made Captain America's shield?",
+    answer: "Howard Stark"
+  },
+  {
+    question: "What state was Thor banished to?",
+    answer: "New Mexico"
+  },
+  {
+    question: "What is Iron Man's nickname for Thor?",
+    answer: "point Break"
+  },
+  {
+    question: "What is Col Rhodes other name?",
+    answer: "War Machine"
+  },
+  {
+    question: "What city was the finall battle of Thor: The Dark World in?",
+    answer: "London"
+  },
+  {
+    question: "What planet is the capital of the Nova Empire?",
+    answer: "Xandar"
+  },
+  {
+    question: "What country is the soure of vibranium?",
+    answer: "Wakanda"
+  },
+  {
+    question: "What city does Ant Man live in?",
+    answer: "San Francisco"
+  },
+  {
+    question: "What city was the airport battle in?",
+    answer: "Leipzig"
+  },
+  {
+    question: "What is Doctor Strange's first name?",
+    answer: "Steven"
+  },
+  {
+    question: "What gang was Peter Quill in?",
+    answer: "Ravagers"
+  },
+  {
+    question: "What is Spider-Man's AI's name?",
+    answer: "Karen"
+  },
+  {
+    question: "What country did Thor find his dad in?",
+    answer: "Norway"
+  },
+  {
+    question: "What shape is the herb that gives the Black Panter his power?",
+    answer: "Heart"
+  },
+  {
+    question: "What body part did Rocket give to Thor?",
+    answer: "Eye"
   }
 ];
 

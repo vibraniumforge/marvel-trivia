@@ -1,1 +1,1 @@
-This is my Marvel Trivia App. It is current as of July 2018. That means all 20 Marvel Cinematic Universe movies, up to and including Ant-Man and the Wasp. It is a simple app written in React.
+This is my Marvel Trivia App. It is current as of July 2018. That means all 20 Marvel Cinematic Universe movies, up to and including Ant-Man and The Wasp. It is a simple app written in React.
