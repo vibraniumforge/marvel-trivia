@@ -1,34 +1,24 @@
 import React from "react";
-import questionChooser from "./Questions.js";
+import questionChooser from "./QuestionList.js";
 import Timer from "./Timer.js";
 import Header from "./Header.js";
+import AnswerBox from "./AnswerBox.js";
+import Question from "./Question.js";
+import GameOver from "./GameOver.js";
 
 class Main extends React.Component {
-  constructor(props) {
-    super(props);
+  state = {
+    question: "",
+    answer: "",
+    userAnswer: "",
+    showCorrectMessage: false,
+    userPoints: 0,
+    secondsRemaining: 15,
+    gameOver: false,
+    gameLength: 10
+  };
 
-    this.state = {
-      theChoice: "",
-      question: "",
-      answer: "",
-      userAnswer: "",
-      showCorrectMessage: false,
-      userPoints: 0,
-      secondsRemaining: 15,
-      gameOver: false,
-      gameLength: 10,
-      startTime: ""
-    };
-
-    // this.onChange = this.onChange.bind(this);
-    this.prepare = this.prepare.bind(this);
-    this.compareAnswer = this.compareAnswer.bind(this);
-    this.showCorrectMessage = this.showCorrectMessage.bind(this);
-    this.startTimer = this.startTimer.bind(this);
-    this.stopTimer = this.stopTimer.bind(this);
-  }
-
-  componentWillMount() {
+  componentDidMount() {
     this.prepare();
   }
 
@@ -36,33 +26,33 @@ class Main extends React.Component {
     if (this.state.secondsRemaining <= 0) {
       this.stopTimer();
       this.prepare();
-      this.setState({ secondsRemaining: 15 });
     }
   }
 
-  prepare() {
+  prepare = () => {
     if (this.state.gameLength) {
       let { question, answer } = questionChooser();
       this.setState(
-        {
+        prevState => ({
           question,
           answer,
           userAnswer: "",
           showCorrectMessage: false,
-          gameLength: this.state.gameLength - 1
-        },
+          gameLength: prevState.gameLength - 1,
+          secondsRemaining: 15
+        }),
         this.startTimer
       );
     } else {
-      this.setState({ gameOver: true });
+      this.setState({ gameOver: true, userAnswer: "" });
     }
-  }
+  };
 
-  onChange(e) {
+  onChange = e => {
     this.setState({ userAnswer: e.target.value }, this.compareAnswer);
-  }
+  };
 
-  compareAnswer() {
+  compareAnswer = () => {
     if (
       this.state.userAnswer !== "" &&
       this.state.userAnswer.toLowerCase().trim() ===
@@ -70,7 +60,7 @@ class Main extends React.Component {
     ) {
       this.showCorrectMessage();
     }
-  }
+  };
 
   showCorrectMessage = () => {
     this.setState(prevState => ({
@@ -83,60 +73,40 @@ class Main extends React.Component {
     clearInterval(this.timer);
   };
 
-  startTimer() {
+  startTimer = () => {
     this.timer = setInterval(
       () =>
-        this.setState({ secondsRemaining: this.state.secondsRemaining - 1 }),
+        this.setState(prevState => ({
+          secondsRemaining: prevState.secondsRemaining - 1
+        })),
       1000
     );
-  }
+  };
 
-  stopTimer() {
+  stopTimer = () => {
     clearInterval(this.timer);
-  }
+  };
 
   render() {
-    console.log("this.state.userPoints=", this.state.userPoints);
-    console.log("this.state.secondsRemaining=", this.state.secondsRemaining);
-    console.log("this.state.gameLength=", this.state.gameLength);
-    console.log("this.state.question=", this.state.question);
-    console.log("this.state.answer=", this.state.answer);
     return (
       <React.Fragment>
         <Header />
-        <div>
-          <div className="question">
-            <label htmlFor="question">Question: {this.state.question}</label>
-          </div>
-          <div
-            id="correctResponse"
-            className={this.state.showCorrectMessage ? "green" : "hidden"}
-          >
-            <h1>You are correct!</h1>
-          </div>
-          <div id="theDomAnswer" className="white">
-            {this.state.answer}
-          </div>
-          <br />
-          <div className="answer">
-            <label htmlFor="question">Answer: </label>
-            <input
-              id="answerBox"
-              className="answer"
-              type="text"
-              value={this.state.userAnswer}
-              onChange={this.onChange.bind(this)}
-              placeholder="Your answer"
-            />
-            <div
-              id="gameOver"
-              className={this.state.gameOver ? "red" : "hidden"}
-            >
-              <h1>Game over.</h1>
-              <h1>You won {this.state.userPoints} points!</h1>
-            </div>
-          </div>
+        <Question
+          question={this.state.question}
+          showCorrectMessage={this.state.showCorrectMessage}
+          gameOver={this.state.gameOver}
+        />
+
+        <div id="theDomAnswer" className="white">
+          {this.state.answer}
         </div>
+        <br />
+        <AnswerBox
+          userAnswer={this.state.userAnswer}
+          onChange={this.onChange}
+        />
+        {this.state.gameOver && <GameOver userPoints={this.state.userPoints} />}
+
         <Timer secondsRemaining={this.state.secondsRemaining} />
       </React.Fragment>
     );

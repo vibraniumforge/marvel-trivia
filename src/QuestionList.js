@@ -88,7 +88,7 @@ const questions = [
     answer: "Brazil"
   },
   {
-    question: "What country was the Grand Prix in?",
+    question: "What country was the Grand Prix that Tony raced in?",
     answer: "Monaco"
   },
   {
@@ -102,10 +102,6 @@ const questions = [
 ];
 
 const questionChooser = () => {
-  console.log(
-    "questionChooser=",
-    questions.splice(Math.floor(Math.random() * questions.length), 1)
-  );
   return questions.splice(Math.floor(Math.random() * questions.length), 1)[0];
 };
 
