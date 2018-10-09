@@ -22,9 +22,9 @@ class Main extends React.Component {
     questionsRemaining: this.gameLength
   };
 
-  componentDidMount() {
-    this.prepare();
-  }
+  // componentDidMount() {
+  //   this.prepare();
+  // }
 
   componentDidUpdate() {
     if (this.state.secondsRemaining <= 0 && !this.state.gameOver) {
@@ -48,7 +48,7 @@ class Main extends React.Component {
         this.startTimer
       );
     } else {
-      this.setState({ gameOver: true, userAnswer: "" });
+      this.setState({ gameOver: true, userAnswer: "", secondsRemaining: 0 });
     }
   };
 
@@ -110,6 +110,10 @@ class Main extends React.Component {
             {this.state.gameOver && (
               <GameOver userPoints={this.state.userPoints} />
             )}
+            <br />
+            <button type="button" id="startBtn" onClick={this.prepare}>
+              Start
+            </button>
           </div>
           <div className="right">
             <Timer secondsRemaining={this.state.secondsRemaining} />

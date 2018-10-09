@@ -24,6 +24,34 @@ const questions = [
     answer: "Natasha Romanoff"
   },
   {
+    question: "What is Star-Lord's real name?",
+    answer: "Peter Quill"
+  },
+  {
+    question: "What is Ant-Man's real name?",
+    answer: "Scott Lang"
+  },
+  {
+    question: "What is Doctor Strange's first name?",
+    answer: "Steven"
+  },
+  {
+    question: "What is Black Panther's real name?",
+    answer: "T'Challa"
+  },
+  {
+    question: "What is War Machine's real name?",
+    answer: "James Rhodes"
+  },
+  {
+    question: "What is Falcon's real name?",
+    answer: "Sam Wilson"
+  },
+  {
+    question: "What is Scarlet Witch's real name?",
+    answer: "Wanda Maximoff"
+  },
+  {
     question: "What is Spider-Man's real name?",
     answer: "Peter Parker"
   },
@@ -92,7 +120,7 @@ const questions = [
     answer: "Monaco"
   },
   {
-    question: "What planet is Thor's dad's name?",
+    question: "What is Thor's dad's name?",
     answer: "Odin"
   },
   {
@@ -100,7 +128,7 @@ const questions = [
     answer: "Loki"
   },
   {
-    question: "What planet is Thor's sister's name?",
+    question: "What is Thor's sister's name?",
     answer: "Hela"
   },
   {
@@ -108,7 +136,7 @@ const questions = [
     answer: "Asgard"
   },
   {
-    question: "What planet is Iron Man's first AI's name?",
+    question: "What is Iron Man's first AI's name?",
     answer: "Jarvis"
   },
   {
@@ -124,15 +152,11 @@ const questions = [
     answer: "Howard Stark"
   },
   {
-    question: "What state was Thor banished to?",
-    answer: "New Mexico"
-  },
-  {
     question: "What is Iron Man's nickname for Thor?",
     answer: "point Break"
   },
   {
-    question: "What is Col Rhodes other name?",
+    question: "What is Col Rhodes call sign?",
     answer: "War Machine"
   },
   {
@@ -144,7 +168,7 @@ const questions = [
     answer: "Xandar"
   },
   {
-    question: "What country is the soure of vibranium?",
+    question: "What country is the source of vibranium?",
     answer: "Wakanda"
   },
   {
@@ -156,12 +180,8 @@ const questions = [
     answer: "Leipzig"
   },
   {
-    question: "What is Doctor Strange's first name?",
-    answer: "Steven"
-  },
-  {
-    question: "What gang was Peter Quill in?",
-    answer: "Ravagers"
+    question: "What species is Rocket?",
+    answer: "Racoon"
   },
   {
     question: "What is Spider-Man's AI's name?",
@@ -172,12 +192,24 @@ const questions = [
     answer: "Norway"
   },
   {
-    question: "What shape is the herb that gives the Black Panter his power?",
+    question: "What shape is the herb that gives the Black Panther his power?",
     answer: "Heart"
   },
   {
     question: "What body part did Rocket give to Thor?",
     answer: "Eye"
+  },
+  {
+    question: "What body part did Rocket give to Thor?",
+    answer: "Eye"
+  },
+  {
+    question: "What is Falcon's drone's name?",
+    answer: "Redwing"
+  },
+  {
+    question: "What is Falcon's drone's name?",
+    answer: "Redwing"
   }
 ];
 
