@@ -36,7 +36,7 @@ const questions = [
     answer: "Steven"
   },
   {
-    question: "What is Black Panther's real name?",
+    question: "What is the Black Panther's real name?",
     answer: "T'Challa"
   },
   {
@@ -112,7 +112,13 @@ const questions = [
     answer: "Malibu"
   },
   {
-    question: "What country did Bruce Banner hide out in?",
+    question:
+      "What country did Bruce Banner hide out in at the beginning of The Avengers?",
+    answer: "India"
+  },
+  {
+    question:
+      "What country did Bruce Banner hide out in in The Incredible Hulk?",
     answer: "Brazil"
   },
   {
@@ -120,8 +126,12 @@ const questions = [
     answer: "Monaco"
   },
   {
-    question: "What is Thor's dad's name?",
+    question: "What is Thor's father's name?",
     answer: "Odin"
+  },
+  {
+    question: "What is Thor's grandfather's name?",
+    answer: "Bor"
   },
   {
     question: "What is Thor's brother's name?",
@@ -136,11 +146,11 @@ const questions = [
     answer: "Asgard"
   },
   {
-    question: "What is Iron Man's first AI's name?",
+    question: "What is Iron Man's FIRST AI's name?",
     answer: "Jarvis"
   },
   {
-    question: "What is Iron Man's current AI's name?",
+    question: "What is Iron Man's CURRENT AI's name?",
     answer: "Friday"
   },
   {
@@ -153,14 +163,14 @@ const questions = [
   },
   {
     question: "What is Iron Man's nickname for Thor?",
-    answer: "point Break"
+    answer: "Point Break"
   },
   {
-    question: "What is Col Rhodes call sign?",
+    question: "What is Lt. Col. Rhodes call sign?",
     answer: "War Machine"
   },
   {
-    question: "What city was the finall battle of Thor: The Dark World in?",
+    question: "What city was the final battle of Thor: The Dark World in?",
     answer: "London"
   },
   {
@@ -168,7 +178,7 @@ const questions = [
     answer: "Xandar"
   },
   {
-    question: "What country is the source of vibranium?",
+    question: "What country is the source of Vibranium?",
     answer: "Wakanda"
   },
   {
@@ -176,7 +186,7 @@ const questions = [
     answer: "San Francisco"
   },
   {
-    question: "What city was the airport battle in?",
+    question: "What city was the Civil War airport battle in?",
     answer: "Leipzig"
   },
   {
@@ -188,7 +198,7 @@ const questions = [
     answer: "Karen"
   },
   {
-    question: "What country did Thor find his dad in?",
+    question: "What country did Thor and Loki find their dad in?",
     answer: "Norway"
   },
   {
@@ -198,14 +208,6 @@ const questions = [
   {
     question: "What body part did Rocket give to Thor?",
     answer: "Eye"
-  },
-  {
-    question: "What body part did Rocket give to Thor?",
-    answer: "Eye"
-  },
-  {
-    question: "What is Falcon's drone's name?",
-    answer: "Redwing"
   },
   {
     question: "What is Falcon's drone's name?",

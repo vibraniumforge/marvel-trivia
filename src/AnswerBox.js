@@ -1,6 +1,6 @@
 import React from "react";
 
-const answerBox = ({ userAnswer, onChange, gameOver }) => {
+const answerBox = ({ userAnswer, onChange }) => {
   return (
     <React.Fragment>
       <label htmlFor="question">Your Answer: </label>

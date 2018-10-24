@@ -9,7 +9,7 @@ import PlayerPoints from "./PlayerPoints.js";
 import QuestionsRemaining from "./QuestionsRemaining.js";
 
 class Main extends React.Component {
-  gameLength = 10;
+  gameQuestionsLength = 10;
   secondsAmount = 10;
   state = {
     question: "",
@@ -19,21 +19,40 @@ class Main extends React.Component {
     userPoints: 0,
     secondsRemaining: this.secondsAmount,
     gameOver: false,
-    questionsRemaining: this.gameLength
+    questionsRemaining: this.gameQuestionsLength,
+    showCorrectAnswer: false
   };
 
-  // componentDidMount() {
-  //   this.prepare();
-  // }
-
   componentDidUpdate() {
-    if (this.state.secondsRemaining <= 0 && !this.state.gameOver) {
-      this.stopTimer();
-      this.prepare();
+    if (
+      this.state.secondsRemaining <= 0 &&
+      !this.state.gameOver &&
+      !this.state.showCorrectAnswer
+    ) {
+      this.showCorrectAnswer();
     }
   }
 
   prepare = () => {
+    let { question, answer } = questionChooser();
+    this.setState(
+      prevState => ({
+        question,
+        answer,
+        userAnswer: "",
+        showCorrectMessage: false,
+        questionsRemaining: prevState.questionsRemaining - 1,
+        secondsRemaining: this.secondsAmount,
+        showCorrectAnswer: false,
+        gameOver: false,
+        questionsRemaining: this.gameQuestionsLength,
+        userPoints: 0
+      }),
+      this.startTimer
+    );
+  };
+
+  reset = () => {
     if (this.state.questionsRemaining) {
       let { question, answer } = questionChooser();
       this.setState(
@@ -43,7 +62,8 @@ class Main extends React.Component {
           userAnswer: "",
           showCorrectMessage: false,
           questionsRemaining: prevState.questionsRemaining - 1,
-          secondsRemaining: this.secondsAmount
+          secondsRemaining: this.secondsAmount,
+          showCorrectAnswer: false
         }),
         this.startTimer
       );
@@ -72,9 +92,15 @@ class Main extends React.Component {
       userPoints: prevState.userPoints + prevState.secondsRemaining,
       secondsRemaining: this.secondsAmount
     }));
-    setTimeout(this.prepare, 1000);
+    setTimeout(this.reset, 1000);
     this.stopTimer();
     clearInterval(this.timer);
+  };
+
+  showCorrectAnswer = () => {
+    this.stopTimer();
+    this.setState({ showCorrectAnswer: true });
+    setTimeout(this.reset, 1000);
   };
 
   startTimer = () => {
@@ -101,6 +127,8 @@ class Main extends React.Component {
               question={this.state.question}
               showCorrectMessage={this.state.showCorrectMessage}
               gameOver={this.state.gameOver}
+              answer={this.state.answer}
+              showCorrectAnswer={this.state.showCorrectAnswer}
             />
             <br />
             <AnswerBox
@@ -112,15 +140,16 @@ class Main extends React.Component {
             )}
             <br />
             <button type="button" id="startBtn" onClick={this.prepare}>
-              Start
+              Start the Game
             </button>
           </div>
           <div className="right">
+            <h3>Countdown Timer</h3>
             <Timer secondsRemaining={this.state.secondsRemaining} />
-            <PlayerPoints userPoints={this.state.userPoints} />
             <QuestionsRemaining
               questionsRemaining={this.state.questionsRemaining}
             />
+            <PlayerPoints userPoints={this.state.userPoints} />
           </div>
         </div>
       </React.Fragment>
