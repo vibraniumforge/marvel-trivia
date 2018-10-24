@@ -33,7 +33,7 @@ class Main extends React.Component {
     }
   }
 
-  prepare = () => {
+  prepareANewGame = () => {
     let { question, answer } = questionChooser();
     this.setState(
       prevState => ({
@@ -41,12 +41,10 @@ class Main extends React.Component {
         answer,
         userAnswer: "",
         showCorrectMessage: false,
-        questionsRemaining: prevState.questionsRemaining - 1,
+        questionsRemaining: this.gameQuestionsLength,
         secondsRemaining: this.secondsAmount,
         showCorrectAnswer: false,
-        gameOver: false,
-        questionsRemaining: this.gameQuestionsLength,
-        userPoints: 0
+        gameOver: false
       }),
       this.startTimer
     );
@@ -61,9 +59,9 @@ class Main extends React.Component {
           answer,
           userAnswer: "",
           showCorrectMessage: false,
-          questionsRemaining: prevState.questionsRemaining - 1,
           secondsRemaining: this.secondsAmount,
-          showCorrectAnswer: false
+          showCorrectAnswer: false,
+          questionsRemaining: prevState.questionsRemaining - 1
         }),
         this.startTimer
       );
@@ -139,7 +137,7 @@ class Main extends React.Component {
               <GameOver userPoints={this.state.userPoints} />
             )}
             <br />
-            <button type="button" id="startBtn" onClick={this.prepare}>
+            <button type="button" id="startBtn" onClick={this.prepareANewGame}>
               Start the Game
             </button>
           </div>
