@@ -1,6 +1,6 @@
 import React from "react";
 
-const gameOver = ({ gameOver, userPoints }) => {
+const gameOver = ({ userPoints }) => {
   return (
     <React.Fragment>
       <div id="gameOver">
