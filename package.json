@@ -10,11 +10,16 @@
     "url-parse": ">=1.4.3"
   },
   "devDependencies": {
+    "gh-pages": "^2.1.1",
     "url-parse": ">=1.4.3"
   },
   "scripts": {
     "start": "react-scripts start",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build",
+    "build": "react-scripts build",
+    "eject": "react-scripts eject"
   },
   "repository": {
     "type": "git",
@@ -25,5 +30,5 @@
   "bugs": {
     "url": "https://github.com/vibraniumforge/marvel-trivia/issues"
   },
-  "homepage": "https://github.com/vibraniumforge/marvel-trivia#readme"
+  "homepage": "https://vibraniumforge.github.io/marvel-trivia/"
 }
