@@ -1,221 +1,221 @@
 const questions = [
   {
     question: "What is Captain America's real name?",
-    answer: "Steve Rogers"
+    correctAnswer: "Steve Rogers"
   },
   {
     question: "What is Iron Man's real name?",
-    answer: "Tony Stark"
+    correctAnswer: "Tony Stark"
   },
   {
     question: "What is The Hulk's real name?",
-    answer: "Bruce Banner"
+    correctAnswer: "Bruce Banner"
   },
   {
     question: "What is Thor's last name?",
-    answer: "Odinson"
+    correctAnswer: "Odinson"
   },
   {
     question: "What is Hawkeye's real name?",
-    answer: "Clint Barton"
+    correctAnswer: "Clint Barton"
   },
   {
     question: "What is Black Widow's real name?",
-    answer: "Natasha Romanoff"
+    correctAnswer: "Natasha Romanoff"
   },
   {
     question: "What is Star-Lord's real name?",
-    answer: "Peter Quill"
+    correctAnswer: "Peter Quill"
   },
   {
     question: "What is Ant-Man's real name?",
-    answer: "Scott Lang"
+    correctAnswer: "Scott Lang"
   },
   {
     question: "What is Doctor Strange's first name?",
-    answer: "Steven"
+    correctAnswer: "Steven"
   },
   {
     question: "What is the Black Panther's real name?",
-    answer: "T'Challa"
+    correctAnswer: "T'Challa"
   },
   {
     question: "What is War Machine's real name?",
-    answer: "James Rhodes"
+    correctAnswer: "James Rhodes"
   },
   {
     question: "What is Falcon's real name?",
-    answer: "Sam Wilson"
+    correctAnswer: "Sam Wilson"
   },
   {
     question: "What is Scarlet Witch's real name?",
-    answer: "Wanda Maximoff"
+    correctAnswer: "Wanda Maximoff"
   },
   {
     question: "What is Spider-Man's real name?",
-    answer: "Peter Parker"
+    correctAnswer: "Peter Parker"
   },
   {
     question: "What color is the Tesseract?",
-    answer: "Blue"
+    correctAnswer: "Blue"
   },
   {
     question: "What color is the Aether?",
-    answer: "Red"
+    correctAnswer: "Red"
   },
   {
     question: "What color is the Eye of Agamotto?",
-    answer: "Green"
+    correctAnswer: "Green"
   },
   {
     question: "What color is the Space Stone?",
-    answer: "Blue"
+    correctAnswer: "Blue"
   },
   {
     question: "What color is the Mind Stone?",
-    answer: "Yellow"
+    correctAnswer: "Yellow"
   },
   {
     question: "What color is the Reality Stone?",
-    answer: "Red"
+    correctAnswer: "Red"
   },
   {
     question: "What color is the Power Stone?",
-    answer: "Purple"
+    correctAnswer: "Purple"
   },
   {
     question: "What color is Time Stone?",
-    answer: "Green"
+    correctAnswer: "Green"
   },
   {
     question: "What color is the Soul Stone?",
-    answer: "Orange"
+    correctAnswer: "Orange"
   },
   {
     question: "What metal is Captain America's shield made of?",
-    answer: "Vibranium"
+    correctAnswer: "Vibranium"
   },
   {
     question: "What powers Iron Man's suits?",
-    answer: "Arc Reactor"
+    correctAnswer: "Arc Reactor"
   },
   {
     question: "What is Thor's hammer called?",
-    answer: "Mjolnir"
+    correctAnswer: "Mjolnir"
   },
   {
     question: "What color does The Hulk turn when angry?",
-    answer: "Green"
+    correctAnswer: "Green"
   },
   {
     question: "What city does Tony Stark live in?",
-    answer: "Malibu"
+    correctAnswer: "Malibu"
   },
   {
     question:
       "What country did Bruce Banner hide out in at the beginning of The Avengers?",
-    answer: "India"
+    correctAnswer: "India"
   },
   {
     question:
       "What country did Bruce Banner hide out in in The Incredible Hulk?",
-    answer: "Brazil"
+    correctAnswer: "Brazil"
   },
   {
     question: "What country was the Grand Prix that Tony Stark raced in?",
-    answer: "Monaco"
+    correctAnswer: "Monaco"
   },
   {
     question: "What is Thor's father's name?",
-    answer: "Odin"
+    correctAnswer: "Odin"
   },
   {
     question: "What is Thor's grandfather's name?",
-    answer: "Bor"
+    correctAnswer: "Bor"
   },
   {
     question: "What is Thor's brother's name?",
-    answer: "Loki"
+    correctAnswer: "Loki"
   },
   {
     question: "What is Thor's sister's name?",
-    answer: "Hela"
+    correctAnswer: "Hela"
   },
   {
     question: "What planet is Thor from?",
-    answer: "Asgard"
+    correctAnswer: "Asgard"
   },
   {
     question: "What is Iron Man's FIRST AI's name?",
-    answer: "Jarvis"
+    correctAnswer: "Jarvis"
   },
   {
     question: "What is Iron Man's CURRENT AI's name?",
-    answer: "Friday"
+    correctAnswer: "Friday"
   },
   {
     question: "What state was Thor banished to?",
-    answer: "New Mexico"
+    correctAnswer: "New Mexico"
   },
   {
     question: "Who made Captain America's shield?",
-    answer: "Howard Stark"
+    correctAnswer: "Howard Stark"
   },
   {
     question: "What is Iron Man's nickname for Thor?",
-    answer: "Point Break"
+    correctAnswer: "Point Break"
   },
   {
     question: "What is Lt. Col. Rhodes call sign?",
-    answer: "War Machine"
+    correctAnswer: "War Machine"
   },
   {
     question: "What city was the final battle of Thor: The Dark World in?",
-    answer: "London"
+    correctAnswer: "London"
   },
   {
     question: "What planet is the capital of the Nova Empire?",
-    answer: "Xandar"
+    correctAnswer: "Xandar"
   },
   {
     question: "What country is the source of Vibranium?",
-    answer: "Wakanda"
+    correctAnswer: "Wakanda"
   },
   {
     question: "What city does Ant Man live in?",
-    answer: "San Francisco"
+    correctAnswer: "San Francisco"
   },
   {
     question: "What city was the Civil War airport battle in?",
-    answer: "Leipzig"
+    correctAnswer: "Leipzig"
   },
   {
     question: "What species is Rocket?",
-    answer: "Racoon"
+    correctAnswer: "Racoon"
   },
   {
     question: "What is Spider-Man's AI's name?",
-    answer: "Karen"
+    correctAnswer: "Karen"
   },
   {
     question: "What country did Thor and Loki find their dad in?",
-    answer: "Norway"
+    correctAnswer: "Norway"
   },
   {
     question: "What shape is the herb that gives the Black Panther his power?",
-    answer: "Heart"
+    correctAnswer: "Heart"
   },
   {
     question: "What body part did Rocket give to Thor?",
-    answer: "Eye"
+    correctAnswer: "Eye"
   },
   {
     question: "What is Falcon's drone's name?",
-    answer: "Redwing"
+    correctAnswer: "Redwing"
   },
   {
     question: "What city did Spider-Man fight the water monster in?",
-    answer: "Venice"
+    correctAnswer: "Venice"
   }
 ];
 
