@@ -67,12 +67,12 @@ body {
   font-size: 30px;
 }
 
-.left {
+.left-col {
   float: left;
   width: 50%;
 }
 
-.right {
+.right-col {
   float: right;
   width: 50%;
 }
