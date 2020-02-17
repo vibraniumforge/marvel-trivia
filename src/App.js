@@ -13,17 +13,19 @@ class Main extends React.Component {
   secondsAmount = 10;
   state = {
     question: "",
-    answer: "",
+    correctAnswer: "",
     userAnswer: "",
     showCorrectMessage: false,
     userPoints: 0,
     secondsRemaining: this.secondsAmount,
     gameOver: false,
     questionsRemaining: this.gameQuestionsLength,
-    showCorrectAnswer: false
+    showCorrectAnswer: false,
+    gameStarted: false
   };
 
   componentDidUpdate() {
+    console.log(this.state);
     if (
       this.state.secondsRemaining <= 0 &&
       !this.state.gameOver &&
@@ -34,29 +36,30 @@ class Main extends React.Component {
   }
 
   prepareANewGame = () => {
-    let { question, answer } = questionChooser();
+    let { question, correctAnswer } = questionChooser();
     this.setState(
-      prevState => ({
+      {
         question,
-        answer,
+        correctAnswer,
         userAnswer: "",
         showCorrectMessage: false,
         questionsRemaining: this.gameQuestionsLength,
         secondsRemaining: this.secondsAmount,
         showCorrectAnswer: false,
-        gameOver: false
-      }),
-      this.startTimer
+        gameOver: false,
+        gameStarted: true
+      },
+      () => this.startTimer
     );
   };
 
   reset = () => {
     if (this.state.questionsRemaining) {
-      let { question, answer } = questionChooser();
+      let { question, correctAnswer } = questionChooser();
       this.setState(
         prevState => ({
           question,
-          answer,
+          correctAnswer,
           userAnswer: "",
           showCorrectMessage: false,
           secondsRemaining: this.secondsAmount,
@@ -66,7 +69,12 @@ class Main extends React.Component {
         this.startTimer
       );
     } else {
-      this.setState({ gameOver: true, userAnswer: "", secondsRemaining: 0 });
+      this.setState({
+        gameOver: true,
+        userAnswer: "",
+        secondsRemaining: 0,
+        gameStarted: false
+      });
     }
   };
 
@@ -78,7 +86,7 @@ class Main extends React.Component {
     if (
       this.state.userAnswer !== "" &&
       this.state.userAnswer.toLowerCase().trim() ===
-        this.state.answer.toLowerCase().trim()
+        this.state.correctAnswer.toLowerCase().trim()
     ) {
       this.showCorrectMessage();
     }
@@ -119,13 +127,13 @@ class Main extends React.Component {
     return (
       <React.Fragment>
         <div>
-          <div className="left">
+          <div className="left-col">
             <Header />
             <Question
               question={this.state.question}
               showCorrectMessage={this.state.showCorrectMessage}
               gameOver={this.state.gameOver}
-              answer={this.state.answer}
+              correctAnswer={this.state.correctAnswer}
               showCorrectAnswer={this.state.showCorrectAnswer}
             />
             <br />
@@ -137,11 +145,16 @@ class Main extends React.Component {
               <GameOver userPoints={this.state.userPoints} />
             )}
             <br />
-            <button type="button" id="startBtn" onClick={this.prepareANewGame}>
+            <button
+              className={this.state.gameStarted ? "hidden" : ""}
+              type="button"
+              id="startBtn"
+              onClick={this.prepareANewGame}
+            >
               Start the Game
             </button>
           </div>
-          <div className="right">
+          <div className="right-col">
             <h3>Countdown Timer</h3>
             <Timer secondsRemaining={this.state.secondsRemaining} />
             <QuestionsRemaining
