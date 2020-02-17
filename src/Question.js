@@ -3,7 +3,7 @@ import React from "react";
 const question = ({
   question,
   showCorrectMessage,
-  answer,
+  correctAnswer,
   showCorrectAnswer
 }) => {
   return (
@@ -18,7 +18,7 @@ const question = ({
         <h1>You are correct!</h1>
       </div>
       <div id="correctAnswer" className={showCorrectAnswer ? "red" : "hidden"}>
-        <h3>The correct answer was: {answer} </h3>
+        <h3>The correct answer was: {correctAnswer} </h3>
       </div>
     </React.Fragment>
   );
